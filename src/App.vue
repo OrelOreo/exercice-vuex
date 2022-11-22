@@ -5,11 +5,24 @@
       <router-link to="/about">About</router-link> |
       <router-link to="/contact">Contact</router-link> |
       <router-link to="/sign">Sign in</router-link> |
-      <router-link to="/panier">Panier</router-link>
+      <router-link to="/panier">Panier ({{ nbArticles }})</router-link>
     </nav>
     <router-view/>
   </div>
 </template>
+
+<script>
+import { mapState } from 'vuex';
+export default {
+  computed: {
+    ...mapState({
+            nbArticles: 'nbArticles'
+       })
+  }  
+}
+
+
+</script>
 
 <style lang="scss" scoped>
 #app {

@@ -9,7 +9,7 @@ export default new Vuex.Store({
     nbArticles: 0,
     simpArticle: {
       name: 'Vin blanc Montagny',
-      src: require ('../assets/article.avif'),
+      src: require ('@/assets/article.avif'),
       alt: 'verre de vin blanc montagny'
     }
   },
@@ -42,7 +42,7 @@ export default new Vuex.Store({
       }
     }
   },
-  
+
   modules: {
   }
 })
