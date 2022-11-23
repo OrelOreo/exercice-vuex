@@ -7,11 +7,29 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     nbArticles: 0,
-    simpArticle: {
-      name: 'Vin blanc Montagny',
-      src: require ('@/assets/article.avif'),
-      alt: 'verre de vin blanc montagny'
-    }
+    simpleArticle: [
+      {
+        name: 'Vin blanc Montagny',
+        image: {
+          src: require ('@/assets/article.avif'),
+          alt: 'verre de vin blanc montagny'
+        }
+      },
+      {
+        name: 'Photo Fashion',
+        image: {
+          src: require ('@/assets/photo-fashion.avif'),
+          alt: 'photo fashion'
+        }
+      },
+      {
+        name: 'Photo Fash',
+        image: {
+          src: require ('@/assets/photo-fash.avif'),
+          alt: 'photo fash'
+        }
+      }
+    ]
   },
 
   getters: {

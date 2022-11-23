@@ -1,38 +1,29 @@
 <template>
     <div class="container">
         <div class="bloc-article">
-            <div class="article">
-                 <!-- <img src="../assets/article.avif" alt="white wine">
-                 <p class="article__description">Vin blanc Montagny</p> -->
-                 <img :src="simpArticle.src" :alt="simpArticle.alt">
-                 <p class="article__description">{{ simpArticle.name}}</p>
-            </div>
-        </div>
-        <div class="buttons">
-            <button class="button button__decrement" v-on:click="decrementArticle">-</button>
-            <button class="button button__increment" v-on:click="incrementArticle">+</button>
-            <p>{{ nbArticle }}</p>
+            <itemArticle class="item" v-for="item in simpleArticle"
+            :key="item.name"
+            :image="item.image"
+            :name="item.name">
+            </itemArticle>
         </div>
     </div>
     
 </template>
 
 <script>
-
-import { mapGetters, mapActions, mapState } from 'vuex'
+import simpArticle from '../components/SimpleArticle.vue'
+import { mapState } from 'vuex'
 
 export default {
     name:'articleExemple',
-    computed: {
-       ...mapGetters({
-             nbArticle: 'formattedNbArticle'
-       }),
-       ...mapState({
-            simpArticle: 'simpArticle'
-       })
+    components: {
+        'itemArticle': simpArticle
     },
-    methods: {
-            ...mapActions(['incrementArticle','decrementArticle'])
+    computed: {
+       ...mapState({
+            simpleArticle: 'simpleArticle'
+       })
     }
 }
 </script>
@@ -40,17 +31,14 @@ export default {
 <style lang="scss" scoped>
 
 .bloc-article {
-    border: 1px solid black;
     width: 350px;
-    margin: 0 auto;
+    height: 900px;
+    margin: auto;
     border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
-    & .article img {
-        width: 100%;
-        height: 450px;
-        object-fit: cover;
-        margin-bottom: -5px;
-    }
 }
 
 .article__description {
