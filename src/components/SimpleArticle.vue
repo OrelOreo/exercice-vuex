@@ -3,47 +3,32 @@
               <img :src="item.image.src" :alt="item.image.alt" class="article-item__image">
               <h3>{{ item.name }}</h3>
 
-             <div class="button">
-                <buttonAdd @click="updateShoppingCart(item)">
+                <button @click="addItemToShoppingCart">
                     Ajouter au panier
-                </buttonAdd>
-                 <p>{{ nbArticle }}</p>        
-            </div>
+                </button>          
          </div>
 </template>
 
-
 <script>
 
-import ButtonAddArticles from './Button.vue'
 
 export default {
     name: 'simpArticle',
-    data() {
-        return {
-            nbArticle: 0
-        }
-    },
     props: {
         item: {
             type: Object,
             required: true
         },
-        addItemToShoppinCart: {
+        addItem: {
             type: Object,
             required: true
         }
     },
     methods: {
-        updateShoppingCart() {
-            this.nbArticle++
+        addItemToShoppingCart() {
             
-		},
-    },
-    components: {
-        'buttonAdd': ButtonAddArticles
-    }
-    
+        }
+    } 
 }
 </script>
 
@@ -60,4 +45,7 @@ export default {
         object-fit: cover;
     }
 
+    button {
+        margin-bottom: 10px;
+    }
 </style>

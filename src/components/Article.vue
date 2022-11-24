@@ -4,7 +4,6 @@
             <itemArticle class="item" v-for="item in simpleArticle"
             v-bind:id="item"
             :item="item"
-            :addItemToShoppinCart="addItemToShoppinCart"
             :key="item.name">
             </itemArticle>
             <div class="panier">
