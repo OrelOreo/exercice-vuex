@@ -4,21 +4,16 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
       <router-link to="/contact">Contact</router-link> |
-      <router-link to="/sign">Sign in</router-link> |
-      <router-link to="/panier">Panier ({{ nbArticles }})</router-link>
+      <router-link to="/sign">Sign in</router-link>
     </nav>
     <router-view/>
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex';
+
 export default {
-  computed: {
-    ...mapState({
-            nbArticles: 'nbArticles'
-       })
-  }  
+  
 }
 
 
@@ -39,7 +34,7 @@ export default {
 }
 
 nav {
-  // padding: 30px;
+  
 
   & a {
     font-weight: bold;

@@ -1,12 +1,13 @@
 <template>   
          <div class="article-item">
-              <img :src="image.src" :alt="image.alt" class="article-item__image">
-             <h3>{{ name }}</h3>
+              <img :src="item.image.src" :alt="item.image.alt" class="article-item__image">
+              <h3>{{ item.name }}</h3>
 
-             <div class="buttons">
-                 <button class="button button__decrement" v-on:click="decrementArticle">-</button>
-                 <button class="button button__increment" v-on:click="incrementArticle">+</button>
-                 <p>{{ nbArticle }}</p>
+             <div class="button">
+                <buttonAdd @click="updateShoppingCart(item)">
+                    Ajouter au panier
+                </buttonAdd>
+                 <p>{{ nbArticle }}</p>        
             </div>
          </div>
 </template>
@@ -14,27 +15,33 @@
 
 <script>
 
-import {mapActions, mapGetters} from 'vuex'
+import ButtonAddArticles from './Button.vue'
 
 export default {
     name: 'simpArticle',
+    data() {
+        return {
+            nbArticle: 0
+        }
+    },
     props: {
-        image: {
+        item: {
             type: Object,
             required: true
         },
-        name: {
-            type: String,
+        addItemToShoppinCart: {
+            type: Object,
             required: true
         }
     },
     methods: {
-            ...mapActions(['incrementArticle','decrementArticle'])
+        updateShoppingCart() {
+            this.nbArticle++
+            
+		},
     },
-    computed: {
-             ...mapGetters({
-                nbArticle: 'formattedNbArticle'
-       })
+    components: {
+        'buttonAdd': ButtonAddArticles
     }
     
 }

@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-// import routesItems from '../views/routesItem.vue'
 
 Vue.use(VueRouter)
 
@@ -25,11 +24,6 @@ const routes = [
     path: '/sign',
     name: 'sign',
     component: () => import('../views/SignInView.vue')
-  },
-  {
-    path: '/panier',
-    name: 'panier',
-    component: () => import('../views/PanierView.vue')
   }
 ]
 
