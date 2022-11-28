@@ -8,11 +8,11 @@
             </itemArticle>
         </div>
     </div>
-    
 </template>
 
 <script>
-import simpArticle from '../components/SimpleArticle.vue'
+
+import simpArticle from './SimpleArticle.vue'
 import { mapState } from 'vuex'
 
 export default {

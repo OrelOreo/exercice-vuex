@@ -5,7 +5,7 @@
       <router-link to="/about">About</router-link> |
       <router-link to="/contact">Contact</router-link> |
       <router-link to="/sign">Sign in</router-link> |
-      <router-link to="/panier">Panier ({{ nbArticles }})</router-link>
+      <router-link to="/panier">Panier ({{ shoppingCart }})</router-link>
     </nav>
     <router-view/>
   </div>
@@ -16,7 +16,7 @@ import { mapState } from 'vuex';
 export default {
   computed: {
     ...mapState({
-            nbArticles: 'nbArticles'
+            shoppingCart: 'shoppingCart'
        })
   }  
 }

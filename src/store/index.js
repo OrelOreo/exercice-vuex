@@ -6,7 +6,8 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    nbArticles: 0,
+    shoppingCart: 0,
+    panier: [],
     simpleArticle: [
       {
         name: 'Vin blanc Montagny',
@@ -39,25 +40,31 @@ export default new Vuex.Store({
   },
 
   mutations: {
-    INCREMENT_ARTICLE(state) {
-      state.nbArticles++
-    },
-    DECREMENT_ARTICLE(state) {
-      state.nbArticles--
+    // INCREMENT_ARTICLE(state) {
+    //   state.nbArticles++
+    // },
+    // DECREMENT_ARTICLE(state) {
+    //   state.nbArticles--
+    // }
+    ADD_ITEMS_TO_SHOPPING_CART(state, amount){
+      state.shoppingCart += amount
     }
   },
 
   actions: {
-    incrementArticle(context) {
-      context.commit('INCREMENT_ARTICLE')
-    },
-    decrementArticle(context) {
-      if (context.state.nbArticles <= 0){
-        this.state.nbArticles = 0
-      } 
-      else {
-        context.commit('DECREMENT_ARTICLE')
-      }
+    // incrementArticle(context) {
+    //   context.commit('INCREMENT_ARTICLE')
+    // },
+    // decrementArticle(context) {
+    //   if (context.state.nbArticles <= 0){
+    //     this.state.nbArticles = 0
+    //   } 
+    //   else {
+    //     context.commit('DECREMENT_ARTICLE')
+    //   }
+    // }
+    updateShoppingCart({ commit }, amount){
+      commit("ADD_ITEMS_TO_SHOPPING_CART", amount)
     }
   },
 

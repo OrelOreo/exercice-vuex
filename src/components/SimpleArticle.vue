@@ -1,20 +1,14 @@
 <template>   
          <div class="article-item">
               <img :src="image.src" :alt="image.alt" class="article-item__image">
-             <h3>{{ name }}</h3>
-
-             <div class="buttons">
-                 <button class="button button__decrement" v-on:click="decrementArticle">-</button>
-                 <button class="button button__increment" v-on:click="incrementArticle">+</button>
-                 <p>{{ nbArticle }}</p>
-            </div>
+              <h3>{{ name }}</h3>
+              <button v-on:click="addToShoppingCart">Ajouter au panier</button>
          </div>
 </template>
 
 
 <script>
 
-import {mapActions, mapGetters} from 'vuex'
 
 export default {
     name: 'simpArticle',
@@ -29,12 +23,9 @@ export default {
         }
     },
     methods: {
-            ...mapActions(['incrementArticle','decrementArticle'])
+            
     },
     computed: {
-             ...mapGetters({
-                nbArticle: 'formattedNbArticle'
-       })
     }
     
 }
@@ -53,4 +44,7 @@ export default {
         object-fit: cover;
     }
 
+    button {
+        margin-bottom: 15px;
+    }
 </style>
