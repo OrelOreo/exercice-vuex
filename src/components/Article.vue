@@ -2,6 +2,7 @@
     <div class="container">
         <div class="bloc-article">
             <itemArticle class="item" v-for="item in simpleArticle"
+            :quantity="item.quantity"
             :key="item.name"
             :image="item.image"
             :name="item.name">

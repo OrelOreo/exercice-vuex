@@ -2,14 +2,18 @@
          <div class="article-item">
               <img :src="image.src" :alt="image.alt" class="article-item__image">
               <h3>{{ name }}</h3>
-              <button v-on:click="addToShoppingCart">Ajouter au panier</button>
+              <p for="add-item-quantity">Quantité: {{ quantity }}</p>
+              <bouton @click="consoleMethod">
+                Ajouter au panier
+              </bouton>
          </div>
 </template>
 
 
 <script>
 
-
+import BaseButton from './Bouton.vue'
+import { mapMutations } from 'vuex';
 export default {
     name: 'simpArticle',
     props: {
@@ -20,12 +24,25 @@ export default {
         name: {
             type: String,
             required: true
+        },
+        quantity: {
+            type: Number,
+            required: true
         }
     },
     methods: {
+
+            ...mapMutations(["INCREMENT_ARTICLE"]),
             
+            consoleMethod() {
+                console.log(this.$store.state.panier)
+                this.$store.commit('ADD_ITEMS_TO_PANIER', this.name)
+            }
     },
     computed: {
+    },
+    components: {
+        'bouton': BaseButton
     }
     
 }
