@@ -2,7 +2,8 @@
     <div class="panier">
         <h1>Article(s) dans votre panier</h1>
         <div class="panier__articles">
-            
+            <h2>Article(s) ajoutés {{ panier.length }}</h2>
+            <div> {{ panier.join(', ') }}</div>
         </div>
     </div>
 </template>
@@ -10,12 +11,13 @@
 <script>
 import { mapState } from 'vuex';
 export default {
-    name:'PanieruWu',
-    methods: {
+    name:'PanierArticles',
+    computed: {
         ...mapState({
             panier: 'panier'
-       })
+        })
     }
+   
 }
 </script>
 

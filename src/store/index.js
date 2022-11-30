@@ -6,7 +6,6 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    shoppingCart: 0,
     panier: [],
     simpleArticle: [
       {
@@ -45,18 +44,11 @@ export default new Vuex.Store({
       state.panier.push(name)
 
     },
-    INCREMENT_ARTICLE(state) {
-      state.shoppingCart ++
-    }
+    
   },
 
   actions: {  
-    updateShoppingCart({ commit }, amount){
-      commit("ADD_ITEMS_TO_SHOPPING_CART", amount)
-    },
-    updatePanier(context) {
-      context.commit("ADD_ITEMS_TO_PANIER")
-    }
+    
   },
 
   modules: {

@@ -3,7 +3,7 @@
               <img :src="image.src" :alt="image.alt" class="article-item__image">
               <h3>{{ name }}</h3>
               <p for="add-item-quantity">Quantité: {{ quantity }}</p>
-              <bouton @click="consoleMethod">
+              <bouton @click="pushArticle">
                 Ajouter au panier
               </bouton>
          </div>
@@ -13,9 +13,10 @@
 <script>
 
 import BaseButton from './Bouton.vue'
-import { mapMutations } from 'vuex';
+
 export default {
     name: 'simpArticle',
+    
     props: {
         image: {
             type: Object,
@@ -30,12 +31,10 @@ export default {
             required: true
         }
     },
-    methods: {
 
-            ...mapMutations(["INCREMENT_ARTICLE"]),
+    methods: {
             
-            consoleMethod() {
-                console.log(this.$store.state.panier)
+            pushArticle() {
                 this.$store.commit('ADD_ITEMS_TO_PANIER', this.name)
             }
     },
@@ -63,5 +62,12 @@ export default {
 
     button {
         margin-bottom: 15px;
+        padding: 10px;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+        background-color: #42b983;
+        color: #f1f1f1;
+        font-weight: bold;
     }
 </style>
