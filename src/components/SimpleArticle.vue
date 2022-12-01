@@ -77,8 +77,11 @@ export default {
         border-radius: 5px;
         border: none;
         cursor: pointer;
-        background-color: #42b983;
+        background-color: rgb(67, 186, 133);
         color: #f1f1f1;
         font-weight: bold;
+    }
+    button:hover {
+        background-color: rgba(67, 186, 133, 0.8);
     }
 </style>

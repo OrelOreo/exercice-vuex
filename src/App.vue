@@ -5,7 +5,7 @@
       <router-link to="/about">About</router-link> |
       <router-link to="/contact">Contact</router-link> |
       <router-link to="/sign">Sign in</router-link> |
-      <router-link to="/panier">Panier</router-link>
+      <router-link to="/panier">Panier({{ panier.length }})</router-link>
     </nav>
     <router-view/>
   </div>
@@ -13,10 +13,13 @@
 
 <script>
 
+import { mapState } from 'vuex';
 export default {
   computed: {
-    
-  }  
+        ...mapState({
+            panier: 'panier'
+        })
+    }
 }
 
 

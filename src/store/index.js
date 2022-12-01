@@ -42,6 +42,7 @@ export default new Vuex.Store({
   mutations: {
     ADD_ITEMS_TO_PANIER(state, name){
       state.panier.push(name)
+      console.log(state.panier)
 
     },
     
