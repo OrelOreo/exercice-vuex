@@ -2,8 +2,8 @@
     <div class="panier">
         <h1>Article(s) dans votre panier</h1>
         <div class="panier__articles">
-            <h2>Article(s) ajoutés {{ panier.length }}</h2>
-            <div> {{ panier.join(', ') }}</div>
+            <h2>Article(s) ajouté(s) {{ panier.length }}</h2>
+            <div class="test"> {{ panier.join(', ') }}</div>
         </div>
     </div>
 </template>
@@ -12,6 +12,7 @@
 import { mapState } from 'vuex';
 export default {
     name:'PanierArticles',
+
     computed: {
         ...mapState({
             panier: 'panier'

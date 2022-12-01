@@ -11,7 +11,8 @@
 
 
 <script>
-
+import { mapState } from 'vuex'
+import Vue from 'vue'
 import BaseButton from './Bouton.vue'
 
 export default {
@@ -33,12 +34,22 @@ export default {
     },
 
     methods: {
-            
             pushArticle() {
-                this.$store.commit('ADD_ITEMS_TO_PANIER', this.name)
+                let myNumber = this.quantity
+        
+                if (myNumber > 0){
+                    myNumber--
+                    this.$store.commit('ADD_ITEMS_TO_PANIER', this.name)
+                }
+
+                let index = this.simpleArticle.findIndex(a => a.name == this.name)
+                Vue.set(this.simpleArticle[index],'quantity', myNumber)
             }
     },
     computed: {
+       ...mapState({
+            simpleArticle: 'simpleArticle'
+       })
     },
     components: {
         'bouton': BaseButton
