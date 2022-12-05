@@ -3,7 +3,14 @@
         <h1>Article(s) dans votre panier</h1>
         <div class="panier__articles">
             <h2>Article(s) ajouté(s) {{ panier.length }}</h2>
-            <div class="test"> {{ panier.join(', ') }}</div>
+            <div class="test" v-bind:key="index" v-for="(item, index) in panier">
+                <div class="card">
+                    {{ item }}
+                    <div class="card__image">
+                        
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -15,7 +22,13 @@ export default {
 
     computed: {
         ...mapState({
-            panier: 'panier'
+            panier: (state)=>
+             {
+                return state.panier.map(name => {
+                    let article = state.simpleArticle.find(a => a.name == name)
+                    return article
+                })
+             }
         })
     }
    
